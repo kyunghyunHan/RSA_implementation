@@ -42,10 +42,17 @@ impl KeySet {
 
     pub fn new() -> KeySet {
         let num_bits = 1024;
-        let e = util::gen_prime(num_bits / 2);
-        let d = util::gen_prime(num_bits / 2);
-        let n = &e * &d;
+        let p = util::gen_prime(num_bits / 2);
+        let q = util::gen_prime(num_bits / 2);
+        let n = &p * &q;
 
+        let maxpq = match p.cmp(&q) {
+            Ordering::Less => &q,
+            _ => &p,
+        };
+        let phi = (&p - 1u32) * (&q - 1u32);
+        let d = util::gen_prime_abrove(100, &maxpq);
+        let e = util::mult_inverse(&phi, &d);
         KeySet { e, d, n }
     }
 }

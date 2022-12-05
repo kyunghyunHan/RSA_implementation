@@ -28,3 +28,9 @@ pub fn is_prime(num: &BigUint) -> bool {
     }
     return true;
 }
+pub fn gen_prime_abrove(num_bits: usize, lbound: &BigUint) -> BigUint {
+    lbound.clone()
+}
+pub fn mult_inverse(a: &BigUint, b: &BigUint) -> BigUint {
+    b.clone()
+}

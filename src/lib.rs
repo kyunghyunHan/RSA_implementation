@@ -50,9 +50,9 @@ impl KeySet {
             Ordering::Less => &q,
             _ => &p,
         };
-        let phi = (&p - 1u32) * (&q - 1u32);
+        let phi_n = (&p - 1u32) * (&q - 1u32);
         let d = util::gen_prime_abrove(100, &maxpq);
-        let e = util::mult_inverse(&phi, &d);
+        let e = util::mult_inverse(&phi_n, &d);
         KeySet { e, d, n }
     }
 }

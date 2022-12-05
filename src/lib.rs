@@ -9,6 +9,8 @@ use std::str;
 
 /*
 key
+exponent:
+base:
 */
 
 pub struct Key {

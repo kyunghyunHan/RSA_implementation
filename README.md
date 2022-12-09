@@ -4,6 +4,7 @@
 - 인수분해 문제 해결의 높은 난이도를 이용한 가장 대표적인 공개키 암호 알고리즘으로 암호화 뿐만 아니라 전자서명의 용도로도 사용된다.
 
 ## 방식
+
 ![RSA](https://user-images.githubusercontent.com/88940298/205602360-755f6489-256c-459b-b084-3c997d3b2b0f.png)
 
 - 1.Alice가 Bob에게 정보를 안전하게 보내고 싶다.
@@ -63,3 +64,7 @@ n=p*q
 ```
 
 ![스크린샷 2022-12-05 오후 6 18 46](https://user-images.githubusercontent.com/88940298/205600204-2c19b2ad-314a-4549-8867-5756318ee6db.png)
+
+## Fermat Primality test
+
+- 숫자가 가능한 소수인지 여부를 확인하는 test

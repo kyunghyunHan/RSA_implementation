@@ -1,12 +1,18 @@
 mod util;
-//큰 숫자 관ㄹ
+//큰 숫자
 use num_bigint::BigUint;
 use std::cmp::Ordering;
 use std::error::Error;
 use std::fs::{self, File};
 use std::io::prelude::*;
 use std::str;
-
+/*
+RSA
+1.p는 q와 거긔 같은 크기이다.
+2.p-1과 q-1은 큰 소인수를 같는다
+3.p-1과 q-1의 최대 공약수는 작은 수이다.
+4.d는 n과 거의 같은 크기이다.
+*/
 /*
 key
 exponent:
@@ -30,6 +36,11 @@ impl Key {
 }
 /*
 keyset
+(e*d)mod phi(n)=1
+e: 1<e <phi(n)로써 1과 phi(n)사이에 있고 phi(n)과 서로소인 e는 공개키에 이용
+d:(e*d)/phi(n)나우었을떄 나머지가 1인 값,개인키에 사용될 값
+n:임의의 두소수 p와 q를 정하고 n=p*q
+
 */
 #[derive(Debug)]
 pub struct KeySet {
@@ -55,10 +66,39 @@ impl KeySet {
         let e = util::mult_inverse(&phi_n, &d);
         KeySet { e, d, n }
     }
+    fn from_key() {}
+    /*
+    임호화
+
+
+    */
+    fn encrypt(&self, msg: &BigUint) -> BigUint {
+        //Returns (self ^ exponent) % modulus.
+        msg.modpow(&self.e, &self.n)
+    }
+    /*
+    복호화
+
+
+
+    */
+
+    fn decrypt(&self, cipher: &BigUint) -> BigUint {
+        cipher.modpow(&self.d, &self.n)
+    }
+
+    pub fn get_private_key(&self) -> Key {
+        Key {
+            exponent: self.d.clone(),
+            base: self.n.clone(),
+        }
+    }
+    pub fn get_pubilc_key() {}
 }
-pub fn create_file() {}
 
 pub fn encrypt_file() {}
 
 pub fn decrypt_file() {}
+pub fn create_file() {}
 pub fn read_key_files() {}
+fn read_key_file() {}

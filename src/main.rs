@@ -52,12 +52,7 @@ fn main() {
     println!("{:?}", is_bool(1, 2));
     let x: u8 = rng.gen();
     println!("{:?}", x);
-    // println!("{:?}", n_power(3, 2, 1))
-    // println!("RSA Encryption");
-    // let test = KeySet::new();
-    // println!("{:?}", test);
 
-    // static KEY_FILE_NAME: &'static str = "key";
     // static PUBLIC_KEY_SUFFIX: &'static str = "pub";
 }
 

@@ -55,7 +55,10 @@ fn main() {
 
     // static PUBLIC_KEY_SUFFIX: &'static str = "pub";
 }
+/*
 
+
+*/
 #[cfg(test)]
 mod test {
     #[test]

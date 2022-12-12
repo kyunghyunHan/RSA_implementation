@@ -18,8 +18,7 @@ pub fn is_prime(num: &BigUint) -> bool {
     if num & 1_u8.to_biguint().unwrap() == 0_u8.to_biguint().unwrap() {
         return false;
     }
-    // Fermat 소수성 테스트 는 숫자가 가능한 소수인지 여부를 확인 하는 확률 테스트
-    //반복횟수 설정가능
+
     for _i in 0..4 {
         let mut rng = rand::thread_rng();
         let a = rng.gen_biguint_range(&0_u8.to_biguint().unwrap(), &(num - 1u32)); //check for inclusivity
